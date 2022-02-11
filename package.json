@@ -1,0 +1,32 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "ini deskripsi",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rizal Mifta",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "body-parser": "^1.19.1",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "cryptr": "^6.0.2",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-jwt": "^6.1.0",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.2.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "startbootstrap-sb-admin-2": "^4.1.4"
+  }
+}
