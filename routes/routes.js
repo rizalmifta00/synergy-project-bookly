@@ -1,6 +1,7 @@
 const express = require('express');
 const Routes = express.Router();
 
+
 const UserController = require('../controllers/user/user')
 Routes.get('/',(req,res)=>{
     res.render('index')

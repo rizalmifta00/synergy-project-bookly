@@ -6,10 +6,14 @@ var Schema = new Mongoose.Schema({
         type: String,
         required : true
     } ,
-    imageId: [{
+    imageUrl: {
+        type: String,
+        required: true
+      },
+      bookId: [{
         type: ObjectId,
-        ref: 'Image'
-      }],
+        ref: 'book'
+      }]
     
 
   

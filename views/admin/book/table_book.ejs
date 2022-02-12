@@ -1,0 +1,44 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>category</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < book.length; i++){ %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= book[i].categoryId.name%></td>
+              <td><%= book[i].name %></td>
+              
+              <td>
+                <img src="http://localhost:8888/<%= book[i].imageUrl %>" alt="imageUrl" width="70px">
+              </td>
+              <td>
+                <form action="/admin/book/<%= book[i].id %>?_method=DELETE" method="POST">
+                  <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
+                    data-id="<%= book[i].id %>" data-name="<%= book[i].name %>"><i class="fas fa-edit"></i></a>
+                  <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

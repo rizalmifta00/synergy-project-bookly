@@ -13,6 +13,7 @@
             <tr>
               <th>No</th>
               <th>Name</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -21,6 +22,9 @@
             <tr>
               <td><%= i + 1 %></td>
               <td><%= category[i].name %></td>
+              <td>
+                <img src="http://localhost:8888/<%= category[i].imageUrl %>" alt="imageUrl" width="70px">
+              </td>
               <td>
                 <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
                   <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"

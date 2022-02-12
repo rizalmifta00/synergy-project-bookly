@@ -8,15 +8,17 @@ const Path = require('path');
 const methodOverride = require('method-override')
 const Session = require('express-session')
 const Flash = require('connect-flash');
+const CookieParser = require('cookie-parser')
 
 App.set('view engine', 'ejs')
-App.use(Express.static('public'))
+App.use(Express.static(Path.join(__dirname, 'public')));
 App.use('/sb-admin-2', Express.static(Path.join(__dirname, 'node_modules/startbootstrap-sb-admin-2')));
 App.use(Morgan('tiny'))
 App.use(Express.urlencoded({ extended: true })) // Type Data Form
 App.use(Express.json()) // Type Data JSON
 Dotenv.config({ path: './config/Config.env' })
 App.use(methodOverride('_method'))
+App.use(CookieParser())
 
 App.use(Session({
     secret: 'keyboard cat',
