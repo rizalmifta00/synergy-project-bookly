@@ -1,5 +1,6 @@
 const Category = require('../../models/category/category');
 const Book = require('../../models/book/Book');
+const User = require('../../models/user/user');
 const fs = require('fs-extra');
 const path = require('path');
 
@@ -9,6 +10,7 @@ module.exports = {
     },
 
     viewCategory : async(req,res) => {
+        
         const category = await Category.find();
         res.render('admin/category/index',{category})
     },
@@ -128,7 +130,10 @@ module.exports = {
       },
     
 
+      viewUser : async(req,res) => {
+        const user = await User.find();
+        res.render('admin/user/index',{user})
+    },
     
-    
-
+   
 }

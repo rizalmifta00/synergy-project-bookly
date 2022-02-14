@@ -22,7 +22,7 @@
                         <h2 class="p-3">Login</h2>
                     </div>
                     <div class="card-body">
-                        <form action="/login-post" method="post">
+                        <div >
                             <div class="mb-4">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" />
@@ -32,9 +32,9 @@
                                 <input type="password" class="form-control" id="password" name="password" />
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn text-light bg-primary">Login</button>
+                                <button type="submit" id="btn-login" class="btn text-light bg-primary">Login</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,32 +42,32 @@
     </div>
 
     <script>
-        function setCookie(name, value, days) {
+    function setCookie(name,value,days) {
             var expires = "";
             if (days) {
                 var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                date.setTime(date.getTime() + (days*24*60*60*1000));
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
         }
-        async function loginButton() {
-            let dataPassing = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON({
-                    username: document.querySelector("#username").value,
-                    password: document.querySelector("#password").value
-                })
-            }
-            let DataLogin = await fetch('http://localhost:8888/api/login',dataPassing)
-            .then(response =>response.json()).catch(err => false)
-            setCookie("token", DataLogin.results, 1);
-
+         document.getElementById("btn-login").addEventListener("click",async function(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+           
+                let formData = {
+                    username:username,
+                    password:password
+                }
+                let config = {
+                    method: "POST",body:JSON.stringify(formData),
+                    headers:{"Content-type":"application/json"}
+                }
+                const getResponse = await fetch('http://localhost:8888/api/login',config).then(response => response.json()).catch(err => false)
+                window.location.href = "/admin/dashboard"
+                    
             
-        }
+    })
     </script>
 </body>
 
